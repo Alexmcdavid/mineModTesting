@@ -1,8 +1,9 @@
 package com.pixelkitty.modtest;
 
-import com.pixelkitty.modtest.configuration.ConfigurationHandler;
+import com.pixelkitty.modtest.handlers.ConfigurationHandler;
 import com.pixelkitty.modtest.proxy.IProxy;
 import com.pixelkitty.modtest.reference.Reference;
+import com.pixelkitty.modtest.utility.LogHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -12,7 +13,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 /**
  * Created by Alex on 4/23/2016.
  */
-@Mod(modid= Reference.MOD_ID, name=Reference.MOD_NAME, version = Reference.VERSION)
+@Mod(modid= Reference.MOD_ID, name=Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class ModTest {
 
     //creates a virgin instance of your mod for referring back
@@ -31,6 +32,7 @@ public class ModTest {
     public void preInit(FMLPreInitializationEvent event){
 
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        LogHelper.info("Preinitialization complete");
 
     }
 
