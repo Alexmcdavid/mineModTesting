@@ -1,5 +1,6 @@
 package com.pixelkitty.modtest;
 
+import com.pixelkitty.modtest.configuration.ConfigurationHandler;
 import com.pixelkitty.modtest.proxy.IProxy;
 import com.pixelkitty.modtest.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -18,17 +19,18 @@ public class ModTest {
     @Mod.Instance(Reference.MOD_ID)
     public static ModTest instance;
 
-    @SidedProxy(clientSide = "com.pixelkitty.modtest.proxy.ClientProxy", serverSide = "com.pixelkitty.modtest.proxy.ServerProxy")
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
 
 
     //Subscribes to the Event Handler and runs in that event. Receives the event as an object
-    //Registers items and blocks
+    //Registers items and blocks, configs (config file defaults are handled by Forge)
     //Pre/Init/Post is kind of like GameMaker Pre/Step/LateStep events
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
 
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
     }
 
