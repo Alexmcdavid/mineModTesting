@@ -1,16 +1,17 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
+  "modid": "ModTest",
+  "name": "Mod Test",
+  "description": "Test mod for learning purposes",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "pixelkittygames.com, eventually",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Pixelkitty"],
+  "credits": "To all my peeps",
   "logoFile": "",
   "screenshots": [],
+  "parent": "",
   "dependencies": []
 }
 ]
