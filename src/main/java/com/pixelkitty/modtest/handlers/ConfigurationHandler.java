@@ -21,6 +21,8 @@ public class ConfigurationHandler {
             if (configuration == null){
                 configuration = new Configuration(configFile);
             }
+
+            configuration.load();
         }
 
     @SubscribeEvent

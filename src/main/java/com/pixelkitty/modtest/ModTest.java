@@ -1,9 +1,11 @@
 package com.pixelkitty.modtest;
 
 import com.pixelkitty.modtest.handlers.ConfigurationHandler;
+import com.pixelkitty.modtest.init.ModItems;
 import com.pixelkitty.modtest.proxy.IProxy;
 import com.pixelkitty.modtest.reference.Reference;
 import com.pixelkitty.modtest.utility.LogHelper;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -32,6 +34,14 @@ public class ModTest {
     public void preInit(FMLPreInitializationEvent event){
 
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+
+        //Register the configuration handler class with the event bus so it can hear events
+        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
+        //Item registration
+        ModItems.init();
+
+
         LogHelper.info("Preinitialization complete");
 
     }
